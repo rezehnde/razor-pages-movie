@@ -2,7 +2,7 @@
 
 A prototype exploring the basics of building a Razor Pages web app following this tutorial [Create a Razor Pages web app with ASP.NET Core](https://docs.microsoft.com/en-US/aspnet/core/tutorials/razor-pages/?view=aspnetcore-3.1)
 
-## :muscle: Locally deployment
+## Locally deployment
 
 1. Clone this repository
 ```
@@ -17,10 +17,10 @@ git pull origin master
 
 3. Hit F5 and done!
 
-## :triangular_ruler: Built with 
+## Built with 
 
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1)
 
-## :trophy: Authors 
+## Authors 
 
 * **Marcos Rezende** - *Initial work* - [Software Engineer](https://github.com/rezehnde)
