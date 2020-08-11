@@ -20,16 +20,40 @@ namespace RazorPagesMovie.Pages.Movies
             _context = context;
         }
 
+        public string TitleSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int PageSize { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         public SelectList Genres { get; set; }
+        public SelectList PageSizes { get; set; }
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
 
-        public IList<Movie> Movie { get;set; }
+        public PaginatedList<Movie> Movie { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder,
+            string currentFilter, string searchString, int? pageSize, int? pageIndex)
         {
+            CurrentSort = sortOrder;
+            PageSize = (int)((pageSize == null)?3:pageSize);
+
+            TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            CurrentFilter = searchString;
+
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
                                             orderby m.Genre
@@ -47,8 +71,21 @@ namespace RazorPagesMovie.Pages.Movies
             {
                 movies = movies.Where(x => x.Genre == MovieGenre);
             }
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    movies = movies.OrderByDescending(s => s.Title);
+                    break;
+                default:
+                    movies = movies.OrderBy(s => s.Title);
+                    break;
+            }
+
             Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
-            Movie = await movies.ToListAsync();
+
+            Movie = await PaginatedList<Movie>.CreateAsync(
+                movies.AsNoTracking(), pageIndex ?? 1, PageSize);
         }
     }
 }
