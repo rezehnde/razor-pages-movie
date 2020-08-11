@@ -1,4 +1,4 @@
-﻿= Razor Pages Movie
+== Razor Pages Movie
 
 A prototype exploring the basics of building a Razor Pages web app following this tutorial [Create a Razor Pages web app with ASP.NET Core](https://docs.microsoft.com/en-US/aspnet/core/tutorials/razor-pages/?view=aspnetcore-3.1)
 
