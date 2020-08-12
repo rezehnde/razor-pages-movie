@@ -9,9 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Data;
+using RazorPagesSample.Data;
 
-namespace RazorPagesMovie
+namespace RazorPagesSample
 {
     public class Startup
     {

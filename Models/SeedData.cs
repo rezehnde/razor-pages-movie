@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using RazorPagesMovie.Data;
+using RazorPagesSample.Data;
 using System;
 using System.Linq;
 
-namespace RazorPagesMovie.Models
+namespace RazorPagesSample.Models
 {
     public static class SeedData
     {

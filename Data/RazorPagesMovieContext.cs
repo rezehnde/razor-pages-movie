@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Models;
+using RazorPagesSample.Models;
 
-namespace RazorPagesMovie.Data
+namespace RazorPagesSample.Data
 {
     public class RazorPagesMovieContext : DbContext
     {
@@ -14,6 +14,6 @@ namespace RazorPagesMovie.Data
         {
         }
 
-        public DbSet<RazorPagesMovie.Models.Movie> Movie { get; set; }
+        public DbSet<RazorPagesSample.Models.Movie> Movie { get; set; }
     }
 }

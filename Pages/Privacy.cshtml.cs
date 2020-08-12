@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace RazorPagesMovie.Pages
+namespace RazorPagesSample.Pages
 {
     public class PrivacyModel : PageModel
     {

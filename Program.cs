@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using RazorPagesMovie.Models;
+using RazorPagesSample.Models;
 using System;
 
-namespace RazorPagesMovie
+namespace RazorPagesSample
 {
     public class Program
     {

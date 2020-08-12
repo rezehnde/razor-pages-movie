@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RazorPagesMovie.Migrations
+namespace RazorPagesSample.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RazorPagesMovie.Data;
+using RazorPagesSample.Data;
 
-namespace RazorPagesMovie.Migrations
+namespace RazorPagesSample.Migrations
 {
     [DbContext(typeof(RazorPagesMovieContext))]
     partial class RazorPagesMovieContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace RazorPagesMovie.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RazorPagesMovie.Models.Movie", b =>
+            modelBuilder.Entity("RazorPagesSample.Models.Movie", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
