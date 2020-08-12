@@ -1,0 +1,12 @@
+﻿@model int
+<select asp-for="PageSize" class="form-control" id="PageSize">
+    @for (var i = 0; i <= 5; i++)
+    {
+        @if (i == Model)
+        {
+            <option value="@i" selected>@i</option>
+        } else {
+            <option value="@i">@i</option>
+        }
+    }
+</select>

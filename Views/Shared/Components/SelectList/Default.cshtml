@@ -2,8 +2,8 @@
 
 <select asp-for="@Model.Name" id="@Model.Name" name="@Model.Name">
     <option value="">All</option>
-    @foreach (var genre in Model.List)
+    @foreach (var item in Model.List)
     {
-        <option value="@genre">@genre</option>
+        <option value="@item">@item</option>
     }
 </select>

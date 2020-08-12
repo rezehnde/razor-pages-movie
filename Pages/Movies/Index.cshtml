@@ -1,5 +1,6 @@
 ﻿@page
 @model RazorPagesSample.Pages.Movies.IndexModel
+@using RazorPagesSample.Components;
 
 @{
     ViewData["Title"] = "Index";
@@ -86,11 +87,7 @@
             </a>
         </td>
         <td>
-            <select asp-for="PageSize" class="form-control" id="PageSize">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-            </select>
+            <partial name="_PageSize" model="@Model.PageSize" />
         </td>
         <td>
             <a asp-page="./Index"
@@ -105,10 +102,10 @@
     </tr>
 </table>
 @section Scripts {
-<script type="text/javascript">
+    <script type="text/javascript">
 $("#PageSize").change(function(){
     var v=$(this).val();
     window.location.href ="@Url.Action("Index","Movies")?sortOrder=@(Model.CurrentSort)&pageIndex=1&currentFilter=@(Model.CurrentFilter)&pageSize="+v;
 });
-</script>
+    </script>
 }

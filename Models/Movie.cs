@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RazorPagesSample.Models
 {
-    public class Movie : IModel
+    public class Movie
     {
         public int ID { get; set; }
 
