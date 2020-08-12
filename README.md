@@ -9,10 +9,10 @@ A prototype exploring the basics of building a Razor Pages web app following the
 
 1. Clone this repository
 ```
-mkdir razor-pages-movie
-cd razor-pages-movie
+mkdir razor-pages-sample
+cd razor-pages-sample
 git init
-git add origin https://github.com/rezehnde/razor-pages-movie
+git add origin https://github.com/rezehnde/razor-pages-sample
 git pull origin master
 ```
 
