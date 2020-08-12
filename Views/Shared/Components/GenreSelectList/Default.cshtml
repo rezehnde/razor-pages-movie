@@ -1,9 +1,0 @@
-﻿@model IEnumerable<string>
-
-<select asp-for="MovieGenre" id="MovieGenre" name="MovieGenre">
-    <option value="">All</option>
-    @foreach (var genre in Model)
-    {
-        <option value="@genre">@genre</option>
-    }
-</select>

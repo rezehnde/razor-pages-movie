@@ -1,0 +1,9 @@
+﻿@model RazorPagesSample.ViewComponents.SelectListViewComponent
+
+<select asp-for="@Model.Name" id="@Model.Name" name="@Model.Name">
+    <option value="">All</option>
+    @foreach (var genre in Model.List)
+    {
+        <option value="@genre">@genre</option>
+    }
+</select>

@@ -12,7 +12,7 @@
 </p>
 <form>
     <p>
-        @await Component.InvokeAsync("GenreSelectList")
+        @await Component.InvokeAsync("SelectList", new { name = "MovieGenre" })
         Title: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
