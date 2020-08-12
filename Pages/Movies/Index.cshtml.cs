@@ -28,7 +28,6 @@ namespace RazorPagesSample.Pages.Movies
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
-        public SelectList Genres { get; set; }
         public SelectList PageSizes { get; set; }
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
@@ -54,11 +53,6 @@ namespace RazorPagesSample.Pages.Movies
 
             CurrentFilter = searchString;
 
-            // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
-
             var movies = from m in _context.Movie
                          select m;
 
@@ -81,8 +75,6 @@ namespace RazorPagesSample.Pages.Movies
                     movies = movies.OrderBy(s => s.Title);
                     break;
             }
-
-            Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
 
             Movie = await PaginatedList<Movie>.CreateAsync(
                 movies.AsNoTracking(), pageIndex ?? 1, PageSize);
