@@ -13,9 +13,9 @@ namespace RazorPagesSample.Pages.Movies
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesSample.Data.RazorPagesMovieContext _context;
+        private readonly RazorPagesMovieContext _context;
 
-        public IndexModel(RazorPagesSample.Data.RazorPagesMovieContext context)
+        public IndexModel(RazorPagesMovieContext context)
         {
             _context = context;
         }
@@ -28,7 +28,6 @@ namespace RazorPagesSample.Pages.Movies
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
-        public SelectList PageSizes { get; set; }
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
 
