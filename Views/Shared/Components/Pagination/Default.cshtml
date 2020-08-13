@@ -1,0 +1,44 @@
+﻿@model RazorPagesSample.ViewComponents.PaginationViewComponent
+@{
+    var prevDisabled = !Model.List.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.List.HasNextPage ? "disabled" : "";
+}
+<table>
+    <tr>
+        <td>
+            <a href="@Model.PreviousPageUrl" asp-page="./Index"
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-pageIndex="@(Model.List.PageIndex - 1)"
+               asp-route-currentFilter="@Model.CurrentFilter"
+               asp-route-pageSize="@Model.PageSize"
+               class="btn btn-primary @prevDisabled">
+                Previous
+            </a>
+        </td>
+        <td>
+            <select asp-for="PageSize" class="form-control" id="PageSize">
+                @for (var i = 1; i <= 5; i++)
+                {
+                    @if (i == Model.PageSize)
+                    {
+                        <option value="@i" selected>@i</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@i</option>
+                    }
+                }
+            </select>
+        </td>
+        <td>
+            <a href="@Model.NextPageUrl" asp-page="./Index"
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-pageIndex="@(Model.List.PageIndex + 1)"
+               asp-route-currentFilter="@Model.CurrentFilter"
+               asp-route-pageSize="@Model.PageSize"
+               class="btn btn-primary @nextDisabled">
+                Next
+            </a>
+        </td>
+    </tr>
+</table>

@@ -12,15 +12,12 @@ namespace RazorPagesSample.ViewComponents
     public class SelectListViewComponent : ViewComponent
     {
         private readonly RazorPagesMovieContext _context;
-
         public string Name { get; set; }
         public List<string> List { get; set; }
-
         public SelectListViewComponent(RazorPagesMovieContext context)
         {
             _context = context;
         }
-
         public async Task<IViewComponentResult> InvokeAsync(string name)
         {
             this.Name = name;
