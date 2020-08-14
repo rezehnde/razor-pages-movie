@@ -1,0 +1,8 @@
+﻿@model RazorPagesSample.Pages.Movies.IndexModel
+<form>
+    <p>
+        @await Component.InvokeAsync("SelectList", new { name = "MovieGenre" })
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>

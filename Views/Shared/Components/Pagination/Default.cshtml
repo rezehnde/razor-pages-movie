@@ -16,7 +16,7 @@
             </a>
         </td>
         <td>
-            <select asp-for="PageSize" class="form-control" id="PageSize">
+            <select asp-for="PageSize" class="form-control" id="PageSize" onchange="pageSizeSelected();">
                 @for (var i = 1; i <= 5; i++)
                 {
                     @if (i == Model.PageSize)
@@ -42,12 +42,9 @@
         </td>
     </tr>
 </table>
-@section Scripts {
-    <script type="text/javascript">
-$("#PageSize").change(function(){
-    var v = $(this).val();
-    window.location.href ="?sortOrder=@(Model.CurrentSort)&pageIndex=1&currentFilter=@(Model.CurrentFilter)&pageSize="+v;
-    // window.location.href ="@Url.Action("Index","Movies")?sortOrder=@(Model.CurrentSort)&pageIndex=1&currentFilter=@(Model.CurrentFilter)&pageSize="+v;
-});
-    </script>
-}
+<script type="text/javascript" on-content-loaded="true">
+    function pageSizeSelected() {
+        v = document.getElementById('PageSize').value;
+        window.location.href ="@Url.Action("Index")?sortOrder=@(Model.CurrentSort)&pageIndex=1&currentFilter=@(Model.CurrentFilter)&pageSize="+v;
+    }
+</script>

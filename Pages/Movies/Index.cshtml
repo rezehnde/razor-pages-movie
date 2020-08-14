@@ -9,64 +9,7 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<form>
-    <p>
-        @await Component.InvokeAsync("SelectList", new { name = "MovieGenre" })
-        Title: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Movie[0].Title)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie[0].Rating)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Movie)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<partial name="Partials/_FilterPartial.cshtml" for="@Model" />
+<partial name="Partials/_GridPartial.cshtml" for="@Model" />
 <vc:pagination page-index="@Model.Movie.PageIndex" page-size="@Model.PageSize" current-filter="@Model.CurrentFilter" current-sort="@Model.CurrentSort" has-previous-page="@Model.Movie.HasPreviousPage" has-next-page="@Model.Movie.HasNextPage"></vc:pagination>
 
