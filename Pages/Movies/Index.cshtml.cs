@@ -31,16 +31,16 @@ namespace RazorPagesSample.Pages.Movies
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
 
-        public PaginatedList<Movie> Movie { get;set; }
+        public PaginatedList<Movie> Movie { get; set; }
 
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageSize, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            PageSize = (int)((pageSize == null)?3:pageSize);
+            PageSize = (int)((pageSize == null) ? 3 : pageSize);
 
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
-            
+
             if (searchString != null)
             {
                 pageIndex = 1;
