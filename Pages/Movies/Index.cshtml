@@ -68,12 +68,5 @@
         }
     </tbody>
 </table>
-@await Component.InvokeAsync("Pagination", new { list = Model.Movie, pageSize = Model.PageSize, currentFilter = Model.CurrentFilter, currentSort = Model.CurrentSort })
-@section Scripts {
-    <script type="text/javascript">
-$("#PageSize").change(function(){
-    var v=$(this).val();
-    window.location.href ="@Url.Action("Index","Movies")?sortOrder=@(Model.CurrentSort)&pageIndex=1&currentFilter=@(Model.CurrentFilter)&pageSize="+v;
-});
-    </script>
-}
+<vc:pagination page-index="@Model.Movie.PageIndex" page-size="@Model.PageSize" current-filter="@Model.CurrentFilter" current-sort="@Model.CurrentSort" has-previous-page="@Model.Movie.HasPreviousPage" has-next-page="@Model.Movie.HasNextPage"></vc:pagination>
+

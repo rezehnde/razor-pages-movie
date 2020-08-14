@@ -26,7 +26,7 @@ namespace RazorPagesSample.ViewComponents
         }
         private Task<List<string>> GetItemsAsync()
         {
-            return _context.Movie.Distinct().OrderBy(x => x.Genre).Select(x => x.Genre).ToListAsync();
+            return _context.Movie.OrderBy(x => x.Genre).Select(x => x.Genre).Distinct().ToListAsync();
         }
     }
 }

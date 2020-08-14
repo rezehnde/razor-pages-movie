@@ -13,21 +13,25 @@ namespace RazorPagesSample.ViewComponents
 {
     public class PaginationViewComponent : ViewComponent
     {
-        public PaginatedList<Movie> List { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
         public int PageSize { get; set; }
+        public int PageIndex { get; set; }
         public string PreviousPageUrl { get; set; }
         public string NextPageUrl { get; set; }
+        public bool HasPreviousPage { get; set; }
+        public bool HasNextPage { get; set; }
         public PaginationViewComponent()
         {
         }
-        public IViewComponentResult Invoke(PaginatedList<Movie> list, int pageSize, string currentFilter, string currentSort)
+        public IViewComponentResult Invoke(int pageIndex, int pageSize, string currentFilter, string currentSort, bool hasPreviousPage, bool hasNextPage)
         {
-            this.PreviousPageUrl = $"/Movies?pageIndex={ list.PageIndex - 1 }&pageSize={ pageSize }&sortOrder={ currentSort}";
-            this.NextPageUrl = $"/Movies?pageIndex={ list.PageIndex + 1 }&pageSize={ pageSize }&sortOrder={ currentSort}";
-            this.List = list;
+            this.PreviousPageUrl = $"/Movies?pageIndex={ pageIndex - 1 }&pageSize={ pageSize }&sortOrder={ currentSort}";
+            this.NextPageUrl = $"/Movies?pageIndex={ pageIndex + 1 }&pageSize={ pageSize }&sortOrder={ currentSort}";
+            this.PageIndex = pageIndex;
             this.PageSize = pageSize;
+            this.HasPreviousPage = hasPreviousPage;
+            this.HasNextPage = hasNextPage;
             this.CurrentFilter = currentFilter;
             this.CurrentSort = currentSort;
             return View(this);
